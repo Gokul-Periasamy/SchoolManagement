@@ -100,7 +100,7 @@ public class SchoolManagementController {
 		return new ResponseEntity<>(resposne, HttpStatus.OK);		
 	}
 	
-	@RequestMapping(value = "/deleteStudentbyId/{id}")
+	@RequestMapping(value = "/updateStudentbyId/{id}")
 	public ResponseEntity<RestResponse> updateStudent(@Valid @RequestBody Student studentDTO , @PathVariable Long id) {
 		
 		RestResponse resposne = new RestResponse();
