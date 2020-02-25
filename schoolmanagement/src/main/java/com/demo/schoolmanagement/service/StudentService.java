@@ -12,5 +12,7 @@ public interface StudentService {
 	public Student getStudentByStudentId(long id);
 	
 	public Boolean deleteStudentById(long id);
+	
+	public long updateStudentById(long id , Student studentDTO);
 
 }

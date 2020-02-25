@@ -99,5 +99,23 @@ public class SchoolManagementController {
 		}
 		return new ResponseEntity<>(resposne, HttpStatus.OK);		
 	}
+	
+	@RequestMapping(value = "/deleteStudentbyId/{id}")
+	public ResponseEntity<RestResponse> updateStudent(@Valid @RequestBody Student studentDTO , @PathVariable Long id) {
+		
+		RestResponse resposne = new RestResponse();
+		
+		if(id != null ) {	
+			   studentService.updateStudentById(id, studentDTO);
+		}else {
+			resposne.setMessage("Failure");
+			return new ResponseEntity<>(resposne, HttpStatus.BAD_REQUEST);
+		}
+		
+		
+			resposne.setMessage("Updated Successfully");
+		
+		return new ResponseEntity<>(resposne, HttpStatus.OK);		
+	}
 
 }

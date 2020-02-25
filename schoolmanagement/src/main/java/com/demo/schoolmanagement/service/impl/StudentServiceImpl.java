@@ -47,6 +47,38 @@ public class StudentServiceImpl implements StudentService {
 		
 		return status;
 	}
+
+	@Override
+	public long updateStudentById(long id , Student studentDTO) {
+		
+		try {
+			 Student student = studentRepository.getOne(id);
+			 if(studentDTO.getDob() != null) {
+				 student.setDob(studentDTO.getDob());	 
+			 }
+			 if(studentDTO.getFirstName() != null) {
+				 student.setFirstName(studentDTO.getFirstName());
+			 }
+			 if(studentDTO.getLastName() != null) {
+				 student.setLastName(studentDTO.getLastName());
+			 }
+			 if(studentDTO.getFatherName() != null) {
+				 student.setFatherName(studentDTO.getFatherName()); 
+			 }
+			 if(studentDTO.getMotherName() != null) {
+				 student.setMotherName(studentDTO.getMotherName());
+			 }
+			 if(studentDTO.getEmail() != null) {
+				 student.setEmail(studentDTO.getEmail());
+			 }
+			 studentRepository.save(student);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
+		return id;
+	}
 	
 	
 
